@@ -1,0 +1,473 @@
+<html><head><base href="https://fusion-web-agency.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fusion - Agence de Création de Sites Web</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+  :root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --text-color: #333;
+    --bg-color: #f4f4f4;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+  }
+
+  .nav-links li {
+    margin-left: 30px;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary-color);
+  }
+
+  .hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    text-align: center;
+    padding: 150px 0 100px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+
+  .hero p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto 30px;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background-color: #fff;
+    color: var(--primary-color);
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+
+  .services {
+    padding: 80px 0;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+
+  .service-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-10px);
+  }
+
+  .service-icon {
+    font-size: 48px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+  }
+
+  .service-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .portfolio {
+    background-color: #fff;
+    padding: 80px 0;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  .portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .portfolio-item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+
+  .portfolio-item:hover img {
+    transform: scale(1.1);
+  }
+
+  .portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+  }
+
+  .portfolio-title {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .portfolio-category {
+    color: var(--secondary-color);
+    font-size: 16px;
+  }
+
+  .testimonials {
+    padding: 80px 0;
+  }
+
+  .testimonial-slider {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .testimonial-item {
+    text-align: center;
+  }
+
+  .testimonial-text {
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+
+  .testimonial-author {
+    font-weight: 700;
+  }
+
+  .contact {
+    background-color: #fff;
+    padding: 80px 0;
+  }
+
+  .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .form-group textarea {
+    height: 150px;
+  }
+
+  .submit-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .submit-button:hover {
+    background-color: var(--secondary-color);
+  }
+
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+    }
+
+    .hero p {
+      font-size: 16px;
+    }
+
+    .section-title {
+      font-size: 28px;
+    }
+
+    .service-card {
+      padding: 20px;
+    }
+
+    .service-icon {
+      font-size: 36px;
+    }
+
+    .service-title {
+      font-size: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a href="https://fusion-web-agency.com/" class="logo">Fusion</a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#testimonials">Témoignages</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Créons ensemble votre présence en ligne</h1>
+        <p>Fusion est une agence de création de sites web innovante, dédiée à transformer vos idées en expériences numériques exceptionnelles.</p>
+        <a href="#contact" class="cta-button">Commencez votre projet</a>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+        <h2 class="section-title">Nos Services</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">&#128187;</div>
+            <h3 class="service-title">Conception Web</h3>
+            <p>Des sites web sur mesure, esthétiques et fonctionnels pour répondre à vos besoins spécifiques.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">&#128241;</div>
+            <h3 class="service-title">Responsive Design</h3>
+            <p>Des sites optimisés pour tous les appareils, offrant une expérience utilisateur fluide.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">&#128200;</div>
+            <h3 class="service-title">SEO</h3>
+            <p>Optimisation pour les moteurs de recherche pour améliorer votre visibilité en ligne.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">&#128296;</div>
+            <h3 class="service-title">Maintenance</h3>
+            <p>Support continu et mises à jour pour garder votre site performant et sécurisé.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <h2 class="section-title">Notre Portfolio</h2>
+        <div class="portfolio-grid">
+          <div class="portfolio-item">
+            <img src="https://fusion-web-agency.com/images/portfolio1.jpg" alt="Site e-commerce moderne avec design épuré" width="400" height="300">
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title">E-commerce Élégant</h3>
+              <p class="portfolio-category">Commerce en ligne</p>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img src="https://fusion-web-agency.com/images/portfolio2.jpg" alt="Application web de gestion de projet avec interface intuitive" width="400" height="300">
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title">Gestionnaire de Projets</h3>
+              <p class="portfolio-category">Application Web</p>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img src="https://fusion-web-agency.com/images/portfolio3.jpg" alt="Blog culinaire avec photographies appétissantes" width="400" height="300">
+            <div class="portfolio-overlay">
+              <h3 class="portfolio-title">Blog Gastronomique</h3>
+              <p class="portfolio-category">Blog</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+        <h2 class="section-title">Témoignages Clients</h2>
+        <div class="testimonial-slider">
+          <div class="testimonial-item">
+            <p class="testimonial-text">"Fusion a transformé notre vision en une réalité numérique époustouflante. Leur créativité et leur expertise technique sont incomparables."</p>
+            <p class="testimonial-author">Marie Dubois, PDG de TechInno</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">Contactez-nous</h2>
+        <form class="contact-form">
+          <div class="form-group">
+            <label for="name">Nom</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="submit-button">Envoyer</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Fusion Agence Web. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Simple form validation
+    const form = document.querySelector('.contact-form');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      if (name && email && message) {
+        alert('Merci pour votre message ! Nous vous contacterons bientôt.');
+        form.reset();
+      } else {
+        alert('Veuillez remplir tous les champs du formulaire.');
+      }
+    });
+
+    // Add a simple animation to service cards
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'scale(1.05)';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'scale(1)';
+      });
+    });
+  </script>
+</body>
+</html>
